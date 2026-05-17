@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>iMocha PPT Auto Formatter</title>
+    <link rel="stylesheet" href="/static/style.css" />
+</head>
+<body>
+    <div class="app-shell">
+        <header>
+            <img src="/static/imocha_logo.png" alt="iMocha logo" class="logo" />
+            <div>
+                <h1>iMocha PPT Auto Formatting Tool</h1>
+                <p>Upload any PPT or PPTX file and convert it into a clean, brand-aligned iMocha presentation.</p>
+            </div>
+        </header>
+
+        <main>
+            {% if error %}
+                <div class="alert">{{ error }}</div>
+            {% endif %}
+
+            <form action="/convert" method="post" enctype="multipart/form-data" class="upload-form">
+                <label for="presentation">Choose PPT or PPTX file:</label>
+                <input type="file" id="presentation" name="presentation" accept=".ppt,.pptx" required />
+                <button type="submit">Convert to iMocha Template</button>
+            </form>
+
+            <section class="features">
+                <h2>What this tool does</h2>
+                <ul>
+                    <li>Analyzes uploaded slides and extracts titles and bullet content.</li>
+                    <li>Applies iMocha brand colors, fonts, and consistent slide structure.</li>
+                    <li>Generates a fully formatted `.pptx` ready for immediate use.</li>
+                    <li>Includes logo placement and a polished first slide layout.</li>
+                </ul>
+            </section>
+        </main>
+    </div>
+</body>
+</html>
